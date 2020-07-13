@@ -6,11 +6,12 @@ else
   let g:loaded_fix_cursorhold_nvim = 'yes'
 endif
 
-set eventignore+=CursorHold
+set eventignore+=CursorHold,CursorHoldI
 
 augroup fix_cursorhold_nvim
   autocmd!
-  autocmd CursorMoved * call s:CursorHoldTimer()
+  autocmd CursorMoved * call s:CursorHoldTimer("n")
+  autocmd CursorMovedI * call s:CursorHoldTimer("i")
 augroup end
 
 function s:CursorHold_Cb(timer_id) abort
@@ -19,9 +20,16 @@ function s:CursorHold_Cb(timer_id) abort
   set eventignore+=CursorHold
 endfunction
 
-function s:CursorHoldTimer() abort
+function s:CursorHoldI_Cb(timer_id) abort
+  set eventignore-=CursorHoldI
+  doautocmd <nomodeline> CursorHoldI
+  set eventignore+=CursorHoldI
+endfunction
+
+function s:CursorHoldTimer(mode) abort
   if exists('g:fix_cursorhold_nvim_timer')
     call timer_stop(g:fix_cursorhold_nvim_timer)
   endif
-  let g:fix_cursorhold_nvim_timer = timer_start(&updatetime, function('s:CursorHold_Cb'))
+  let cb = a:mode == "n" ? 's:CursorHold_Cb' : 's:CursorHoldI_Cb'
+  let g:fix_cursorhold_nvim_timer = timer_start(&updatetime, function(cb))
 endfunction

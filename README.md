@@ -4,13 +4,13 @@ Fix Neovim's CursorHold perf bug
 Rationale
 ---------
 
-Neovim's current implementation of **CusorHold** autocmd has a [performance bug][issue]
-which causes slowdowns, and sometimes, don't even trigger **CursorHold**.
+Neovim's implementations of **CusorHold** and **CursorHoldI** autocmd events have a [performance bug][issue]
+which causes slowdowns, and sometimes, don't even trigger those events.
 
-This plugin fixes this by manually triggering **CursorHold**.
+This plugin fixes this by manually triggering those.
 
-This will result in more snapiness for plugins using **CursorHold**, such as:
-**coc.nvim**, **tagbar**, **vim-devicons**, **vim-polyglot**, etc.
+This will result in more snapiness for plugins using those events, such as:
+**coc.nvim**, **vim-gutter**, **tagbar**, **vim-devicons**, **vim-polyglot**, etc.
 
 Installation
 ---------
