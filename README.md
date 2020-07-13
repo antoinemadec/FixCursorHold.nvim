@@ -12,8 +12,6 @@ This plugin fixes this by manually triggering **CursorHold**.
 This will result in more snapiness for plugins using **CursorHold**, such as:
 **coc.nvim**, **tagbar**, **vim-devicons**, **vim-polyglot**, etc.
 
-**Warning**: it will execute **CursorHold** autocmds twice as many times as expected.
-
 Installation
 ---------
 
