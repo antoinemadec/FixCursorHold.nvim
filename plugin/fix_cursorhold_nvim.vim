@@ -1,6 +1,6 @@
 " Maintainer:   Antoine Madec <aja.madec@gmail.com>
 
-if exists('g:loaded_fix_cursorhold_nvim') || !has('nvim')
+if exists('g:loaded_fix_cursorhold_nvim')
   finish
 else
   let g:loaded_fix_cursorhold_nvim = 'yes'
@@ -31,5 +31,6 @@ function s:CursorHoldTimer(mode) abort
     call timer_stop(g:fix_cursorhold_nvim_timer)
   endif
   let cb = a:mode == "n" ? 's:CursorHold_Cb' : 's:CursorHoldI_Cb'
-  let g:fix_cursorhold_nvim_timer = timer_start(&updatetime, function(cb))
+  let t = get(g:, 'cursorhold_updatetime', &updatetime)
+  let g:fix_cursorhold_nvim_timer = timer_start(t, function(cb))
 endfunction
