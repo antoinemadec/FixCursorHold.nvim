@@ -29,8 +29,8 @@ function CursorHoldI_Cb(timer_id) abort
 endfunction
 
 function CursorHoldTimer() abort
+  call timer_stop(g:fix_cursorhold_nvim_timer)
   if mode() == 'n'
-    call timer_stop(g:fix_cursorhold_nvim_timer)
     let g:fix_cursorhold_nvim_timer = timer_start(g:cursorhold_updatetime, 'CursorHold_Cb')
   endif
 endfunction
