@@ -5,8 +5,8 @@ Rationale
 ---------
 
 This plugin exists for two reasons:
-  1. fix neovim **CusorHold** and **CursorHoldI** autocmd events [performance bug][issue]
-  2. decouple **updatetime** from **CusorHold** and **CursorHoldI** (works for Vim and Neovim)
+  1. fix neovim **CursorHold** and **CursorHoldI** autocmd events [performance bug][issue]
+  2. decouple **updatetime** from **CursorHold** and **CursorHoldI** (works for Vim and Neovim)
 
 1., fixes slowdowns and untriggered events
 
