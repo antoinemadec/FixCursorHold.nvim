@@ -17,12 +17,18 @@ augroup fix_cursorhold_nvim
 augroup end
 
 function CursorHold_Cb(timer_id) abort
+  if v:exiting
+    return
+  endif
   set eventignore-=CursorHold
   doautocmd <nomodeline> CursorHold
   set eventignore+=CursorHold
 endfunction
 
 function CursorHoldI_Cb(timer_id) abort
+  if v:exiting
+    return
+  endif
   set eventignore-=CursorHoldI
   doautocmd <nomodeline> CursorHoldI
   set eventignore+=CursorHoldI
