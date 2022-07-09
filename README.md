@@ -13,7 +13,7 @@ This plugin exists for two reasons:
 2., you can now use small delays for **CursorHold** without writing the swap file 10x/sec (see :help updatetime)
 
 This will result in more snappiness for plugins using those events, such as:
-**coc.nvim**, **vim-gutter**, **tagbar**, **vim-devicons**, **vim-polyglot**, etc.
+**coc.nvim**, **vim-gitgutter**, **tagbar**, **vim-devicons**, **vim-polyglot**, etc.
 
 Installation
 ---------
