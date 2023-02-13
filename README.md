@@ -1,4 +1,4 @@
-# **❗ This plugin is not needed after https://github.com/neovim/neovim/pull/20198❗**
+# **❗ This plugin is not needed after https://github.com/neovim/neovim/pull/20198 ❗**
 
 Fix CursorHold Performance
 =================================
